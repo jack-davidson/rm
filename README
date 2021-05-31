@@ -6,6 +6,6 @@ delete files.
 (kind of) compatible with POSIX rm.
 
 usage
-====
+=====
 
 rm [-r] file
