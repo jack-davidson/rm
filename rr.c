@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details.
  *
- * rm
+ * rr
  *
  * Mini implementation of rm.
  *
@@ -15,7 +15,7 @@
 #define PATH_SIZE 512
 
 int
-rm(char *path, int recursive)
+rr(char *path, int recursive)
 {
 	char new_path[PATH_SIZE];
 	struct stat path_stat;
@@ -41,7 +41,7 @@ rm(char *path, int recursive)
 				snprintf(new_path, PATH_SIZE,
 					 "%s/%s", path,
 					 entry->d_name);
-				rm(new_path, 1);
+				rr(new_path, 1);
 			}
 		}
 		closedir(src_dir);
@@ -52,7 +52,7 @@ rm(char *path, int recursive)
 
 void usage()
 {
-	printf("usage: rm [-r] file\n");
+	printf("usage: rr [-r] file\n");
 }
 
 int main(int argc, char *argv[])
@@ -60,9 +60,9 @@ int main(int argc, char *argv[])
 	if (argc == 1)
 		usage();
 	if (argc > 2 && !strcmp(argv[1], "-r"))
-		rm(argv[2], 1);
+		rr(argv[2], 1);
 	if (argc == 2)
-		rm(argv[1], 0);
+		rr(argv[1], 0);
 	if (argc == 2 && !strcmp(argv[1], "-h"))
 		usage();
 }
