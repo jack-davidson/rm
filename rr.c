@@ -39,9 +39,9 @@ rr(char *path, int recursive)
 		while ((entry = readdir(src_dir)) != NULL) {
 			if (strcmp(entry->d_name, "..") &
 			    strcmp(entry->d_name, ".")) {
-				strncat(new_path, path, PATH_SIZE);
-				strncat(new_path, "/", 1);
-				strncat(new_path, entry->d_name, PATH_SIZE);
+				strncat(new_path, path, PATH_SIZE - 1);
+				strncat(new_path, "/", PATH_SIZE - 1);
+				strncat(new_path, entry->d_name, PATH_SIZE - 1);
 				rr(new_path, 1);
 			}
 		}
