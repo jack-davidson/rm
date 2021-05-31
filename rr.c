@@ -32,7 +32,6 @@ rm(char *path, int recursive)
 			return -1;
 		}
 		src_dir = opendir(path);
-		printf("%s", path);
 		if (src_dir == NULL){
 			fprintf(stderr, "cannot open %s\n", path);
 			return -1;
