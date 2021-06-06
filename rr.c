@@ -53,7 +53,7 @@ rr(char *path, int recursive)
 
 void usage()
 {
-	printf("usage: rr [-r] file\n");
+	printf("usage: rr [-r directory] | [file]\n");
 }
 
 int main(int argc, char *argv[])
